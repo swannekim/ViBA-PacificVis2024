@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/vibalogo.png" type="">
+
+  <title> ViBA Lifelog </title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid ">
+          <div class="contact_nav">
+            <a href="">
+              <span>
+                PacificVis 2024
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+              <img src="images/vibalogo.png" alt="logo" style="height: 28px; margin-right: 10px;">
+              <span>
+                Revelio
+              </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="index.html"> Home </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="service1.html"> Keyword <span class="sr-only">(current)</span> </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service2.html"> YT Topic </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service3.html"> Google DT </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"> About </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container">
+          <h2>
+            Keyword <span>Network</span>
+          </h2>
+          <h4>
+            Graphic Representation of Interactions among Your Searches
+          </h4>
+          <p style="margin-bottom: 20px;">
+            The network, generated using <strong>Google Takeout's Search Data</strong>, depicts user-searched terms as nodes.<br>
+            Node colors represent search term communities identified through a <a href="https://arxiv.org/abs/0803.0476" style="color: #04233b;">community detection algorithm.</a><br>
+            Node size indicates <a href="https://www.sciencedirect.com/topics/computer-science/betweenness-centrality" style="color: #04233b;">centrality</a> within the network, reflecting significance.<br><br>
+            Two main types of edges are distinguished:
+            <ol>
+              <li><strong>solid edges</strong> connect search terms with embeddings, created from
+                <a href="https://github.com/jhgan00/ko-sentence-transformers" style="color: #04233b;">pre-trained Language Model</a>, exceeding a threshold of similarity,</li>
+              <li>while <strong>dashed edges</strong> connect terms with sequential relationships based on search order.</li>
+            </ol>
+          </p>
+        </div>
+
+        <!-- dashboards -->
+        <div class="button_container" style="margin-bottom: 20px;">
+          <a href="#nw1" class="button">1 - 8 Oct, 2023</a>
+          <a href="#nw2" class="button">8 - 15 Oct, 2023</a>
+          <a href="#nw3" class="button">15 - 22 Oct, 2023</a>
+          <a href="#nw4" class="button">22 - 29 Oct, 2023</a>
+        </div>
+        <h5 id="nw1" style="font-weight: bold; margin-bottom: 20px; margin-top: 60px;">
+          <span>Search Period:</span> 1 Oct, 2023 - 8 Oct, 2023
+        </h5>
+        <iframe src="dashboard/Search_Keyword_Network_1.html" style="width: 100%; height: 1200px; border: none;"></iframe>
+        <h5 id="nw2" style="font-weight: bold; margin-bottom: 20px; margin-top: 40px;">
+          <span>Search Period:</span> 8 Oct, 2023 - 15 Oct, 2023
+        </h5>
+        <iframe src="dashboard/Search_Keyword_Network_2.html" style="width: 100%; height: 1200px; border: none;"></iframe>
+        <h5 id="nw3" style="font-weight: bold; margin-bottom: 20px; margin-top: 40px;">
+          <span>Search Period:</span> 15 Oct, 2023 - 22 Oct, 2023
+        </h5>
+        <iframe src="dashboard/Search_Keyword_Network_3.html" style="width: 100%; height: 1200px; border: none;"></iframe>
+        <h5 id="nw4" style="font-weight: bold; margin-bottom: 20px; margin-top: 40px;">
+          <span>Search Period:</span> 22 Oct, 2023 - 29 Oct, 2023
+        </h5>
+        <iframe src="dashboard/Search_Keyword_Network_4.html" style="width: 100%; height: 1200px; border: none;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-9 info_col">
+          <div class="info_contact">
+            <h4>
+              Contact Info.
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://gsds.snu.ac.kr/people-post/hyunwoo-park/">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  ViBA Lab. @ Graduate School of Data Science, Seoul National University, KR
+                </span>
+              </a>
+              <a>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  swannekim@snu.ac.kr | pkmon1d@snu.ac.kr | changyu.lee@snu.ac.kr | yeeun.choi@snu.ac.kr
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Project Description
+            </h4>
+            <p>
+              This is a data-driven life-logging visualization project done by master's students of ViBA Lab.<br>Feel free to ask questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved by
+        <a href="https://gsds.snu.ac.kr/people-post/hyunwoo-park/">ViBA Lab. @ SNU GSDS</a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 580px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff0000", "community": 0, "id": "0", "label": "json decode error unterminated string python fix", "shape": "dot", "size": 10}, {"color": "#ff0000", "community": 0, "id": "1", "label": "json decode error unterminated string", "shape": "dot", "size": 10}, {"color": "#ff0000", "community": 0, "id": "2", "label": "json decode error", "shape": "dot", "size": 10}, {"color": "#ff0000", "community": 0, "id": "3", "label": "export chrome history", "shape": "dot", "size": 10}, {"color": "#ff0000", "community": 0, "id": "4", "label": "chrome export history", "shape": "dot", "size": 10}, {"color": "#ff4c00", "community": 1, "id": "6", "label": "Improving software supply chain security with AI: Evidence from Dependabot", "shape": "dot", "size": 10}, {"color": "#ff4c00", "community": 1, "id": "7", "label": "\u201cImproving software supply chain security with AI: Evidence from Dependabot", "shape": "dot", "size": 10}, {"color": "#ff4c00", "community": 1, "id": "8", "label": "Seongkyoon Jeong eunae yoo", "shape": "dot", "size": 10}, {"color": "#ff4c00", "community": 1, "id": "11", "label": "sungkyun jeong tennessee", "shape": "dot", "size": 10}, {"color": "#ff4c00", "community": 1, "id": "9", "label": "npm packages entire list", "shape": "dot", "size": 10}, {"color": "#ff4c00", "community": 1, "id": "10", "label": "npm packages list", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "13", "label": "\uc11c\uc6b8\ub300 \uc724\ubcd1\ub3d9 \uad50\uc218", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "71", "label": "amos \uc11c\uc6b8\ub300", "shape": "dot", "size": 15}, {"color": "#ffe500", "community": 3, "id": "14", "label": "\uc11c\uc6b8\ub300 \uc720\uc900\ud76c \ud559\uc0dd\ucc98\uc7a5", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "68", "label": "\uc11c\uc6b8\ub300 \uc774\uc720\ub9ac \ud559\uc7a5 \uc0dd\uacfc\ub300", "shape": "dot", "size": 15}, {"color": "#cbff00", "community": 4, "id": "15", "label": "\uc6b4\uc804\uc790\ubcf4\ud5d8 \ud55c\ubb38\ucca0", "shape": "dot", "size": 10}, {"color": "#cbff00", "community": 4, "id": "16", "label": "\uc6b4\uc804\uc790\ubcf4\ud5d8", "shape": "dot", "size": 10}, {"color": "#cbff00", "community": 4, "id": "20", "label": "\ud654\uc7ac\ubcf4\ud5d8", "shape": "dot", "size": 10}, {"color": "#cbff00", "community": 4, "id": "19", "label": "\ud654\uc7ac\ubcf4\ud5d8 \uc2e4\uba74\uc801 \ud655\uc778", "shape": "dot", "size": 10}, {"color": "#33ff00", "community": 6, "id": "21", "label": "gdr \ucc4c\ub9b0\uc9c0 \ubaa8\ub4dc", "shape": "dot", "size": 10}, {"color": "#33ff00", "community": 6, "id": "22", "label": "gdr \ucc4c\ub9b0\uc9c0 \ub9ac\ub354\ubcf4\ub4dc", "shape": "dot", "size": 10}, {"color": "#33ff00", "community": 6, "id": "23", "label": "gdr \ucc4c\ub9b0\uc9c0", "shape": "dot", "size": 10}, {"color": "#00ff19", "community": 7, "id": "24", "label": "matthew shum github", "shape": "dot", "size": 15}, {"color": "#00ff19", "community": 7, "id": "59", "label": "clearml github", "shape": "dot", "size": 15}, {"color": "#00ff66", "community": 8, "id": "26", "label": "kindle mac", "shape": "dot", "size": 15}, {"color": "#00ff66", "community": 8, "id": "60", "label": "mac remote desktop", "shape": "dot", "size": 15}, {"color": "#00ff66", "community": 8, "id": "72", "label": "carddav client mac", "shape": "dot", "size": 15}, {"color": "#00ff66", "community": 8, "id": "90", "label": "mac address book manager", "shape": "dot", "size": 13.36848198329064}, {"color": "#00ffb2", "community": 9, "id": "28", "label": "\uce74\uc774\uc2a4\ud2b8 \uc774\uc7ac\uae38 \uad50\uc218", "shape": "dot", "size": 15}, {"color": "#00ffb2", "community": 9, "id": "29", "label": "\uce74\uc774\uc2a4\ud2b8 \uae40\ubbfc\uc218 \uad50\uc218", "shape": "dot", "size": 10}, {"color": "#00ffb2", "community": 9, "id": "33", "label": "\uce74\uc774\uc2a4\ud2b8 \ub370\uc774\ud130\ubca0\uc774\uc2a4 \uad50\uc218", "shape": "dot", "size": 15}, {"color": "#ffe500", "community": 3, "id": "30", "label": "com", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "50", "label": "\uc608\uc57d", "shape": "dot", "size": 10.815307820299502}, {"color": "#00ffb2", "community": 9, "id": "34", "label": "\ub370\uc774\ud130\ubca0\uc774\uc2a4 \uad50\uc218", "shape": "dot", "size": 10}, {"color": "#00ffff", "community": 10, "id": "35", "label": "aprimo.com linkedin", "shape": "dot", "size": 10}, {"color": "#00ffff", "community": 10, "id": "36", "label": "aprimo cdn", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "40", "label": "gurobi licenses", "shape": "dot", "size": 15}, {"color": "#0019ff", "community": 13, "id": "42", "label": "gurobi install linux", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "43", "label": "gurobi academic license", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "44", "label": "gurobi py install conda", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "69", "label": "lisrel", "shape": "dot", "size": 15}, {"color": "#3200ff", "community": 14, "id": "45", "label": "wordle", "shape": "dot", "size": 10}, {"color": "#3200ff", "community": 14, "id": "94", "label": "wordle", "shape": "dot", "size": 10}, {"color": "#3200ff", "community": 14, "id": "95", "label": "nyt wordle", "shape": "dot", "size": 10}, {"color": "#3200ff", "community": 14, "id": "99", "label": "lex word processor", "shape": "dot", "size": 10}, {"color": "#7f00ff", "community": 15, "id": "46", "label": "pittsburgh supercomputing center ondemand", "shape": "dot", "size": 10}, {"color": "#7f00ff", "community": 15, "id": "47", "label": "pittsburgh supercomputing center", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "49", "label": "\uc608\uc57d\ud558\uc0e4", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "67", "label": "\uc608\uc57d\ud558\uc0e4", "shape": "dot", "size": 15}, {"color": "#ffe500", "community": 3, "id": "53", "label": "regression ieee vis", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "66", "label": "ieee vis", "shape": "dot", "size": 15}, {"color": "#00ff19", "community": 7, "id": "54", "label": "twitter downloader github", "shape": "dot", "size": 10}, {"color": "#00ff19", "community": 7, "id": "55", "label": "twitter downloader", "shape": "dot", "size": 10}, {"color": "#00ff19", "community": 7, "id": "56", "label": "twitter dl", "shape": "dot", "size": 10}, {"color": "#00ff19", "community": 7, "id": "57", "label": "twitter api", "shape": "dot", "size": 15}, {"color": "#00ff66", "community": 8, "id": "63", "label": "windows 10 remote desktop enable", "shape": "dot", "size": 10}, {"color": "#00ff66", "community": 8, "id": "61", "label": "check internal ip", "shape": "dot", "size": 10}, {"color": "#00ff66", "community": 8, "id": "62", "label": "check ip", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "70", "label": "spss amos", "shape": "dot", "size": 15}, {"color": "#0019ff", "community": 13, "id": "97", "label": "sigmaos", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "84", "label": "mutt carddav", "shape": "dot", "size": 15}, {"color": "#ff0098", "community": 18, "id": "73", "label": "carddav rust", "shape": "dot", "size": 15}, {"color": "#ff0098", "community": 18, "id": "75", "label": "carddav org chart", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "77", "label": "curl carddav", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "78", "label": "fetch carddav", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "79", "label": "carddav curl", "shape": "dot", "size": 15}, {"color": "#ff0098", "community": 18, "id": "74", "label": "carddav org chart visualizer", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "86", "label": "carddav backup python", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "88", "label": "carddav python script", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "76", "label": "python requests carddav", "shape": "dot", "size": 10}, {"color": "#ff004c", "community": 19, "id": "81", "label": "vdirsyncer", "shape": "dot", "size": 10.478567466920216}, {"color": "#ff004c", "community": 19, "id": "80", "label": "vdirsyncer how to detect changes", "shape": "dot", "size": 10}, {"color": "#ff004c", "community": 19, "id": "83", "label": "vdirsyncer change version", "shape": "dot", "size": 10}, {"color": "#ff004c", "community": 19, "id": "82", "label": "vdirsyncer docker", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "85", "label": "mutt", "shape": "dot", "size": 10}, {"color": "#3200ff", "community": 14, "id": "92", "label": "utah license plate geography", "shape": "dot", "size": 10}, {"color": "#3200ff", "community": 14, "id": "93", "label": "utah license plate", "shape": "dot", "size": 10}, {"color": "#ff0000", "community": 0, "id": "5", "label": "folium", "shape": "dot", "size": 10}, {"color": "#ff9900", "community": 2, "id": "12", "label": "\ud15d\uc2a4 \ub9cc\uc810", "shape": "dot", "size": 10}, {"color": "#7fff00", "community": 5, "id": "17", "label": "\ub3c4\uace12\ub3d9 \ubb38\ud654\uc13c\ud130 \uc8fc\ucc28\uc7a5 \uac00\uaca9\ud45c", "shape": "dot", "size": 10}, {"color": "#cbff00", "community": 4, "id": "18", "label": "\uac74\ucd95\ubb3c\ub300\uc7a5", "shape": "dot", "size": 10}, {"color": "#00ff19", "community": 7, "id": "25", "label": "Econometric Models For Industrial Organization", "shape": "dot", "size": 15}, {"color": "#00ffb2", "community": 9, "id": "27", "label": "\ud55c\uc6b1\uc2e0 \ud3ec\ud56d\uacf5\ub300", "shape": "dot", "size": 15}, {"color": "#00ffb2", "community": 9, "id": "31", "label": "\uc2ec\uaddc\uc11d", "shape": "dot", "size": 10}, {"color": "#00ffb2", "community": 9, "id": "32", "label": "\ubb38\ubd09\uae30", "shape": "dot", "size": 10.260676650027731}, {"color": "#00b2ff", "community": 11, "id": "37", "label": "pod \uad50\ud68c", "shape": "dot", "size": 10}, {"color": "#0066ff", "community": 12, "id": "38", "label": "\uae40\uc900\ubc94 \uad50\uc218", "shape": "dot", "size": 10}, {"color": "#0066ff", "community": 12, "id": "39", "label": "\ubc15\ucca0\uc21c \uad50\uc218", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "41", "label": "linux time output to file", "shape": "dot", "size": 10}, {"color": "#7f00ff", "community": 15, "id": "48", "label": "xsede access", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "51", "label": "windows automation", "shape": "dot", "size": 10}, {"color": "#cc00ff", "community": 16, "id": "52", "label": "Project Selection in NIH: A Natural Experiment from ARRA", "shape": "dot", "size": 10}, {"color": "#00ff19", "community": 7, "id": "58", "label": "auto graph gpt", "shape": "dot", "size": 15}, {"color": "#ffe500", "community": 3, "id": "64", "label": "melbourne time", "shape": "dot", "size": 10}, {"color": "#ffe500", "community": 3, "id": "65", "label": "australia time zone", "shape": "dot", "size": 10}, {"color": "#ff0098", "community": 18, "id": "87", "label": "radicale import contacts", "shape": "dot", "size": 10}, {"color": "#00ff66", "community": 8, "id": "89", "label": "google contacts import icloud carddav", "shape": "dot", "size": 10}, {"color": "#3200ff", "community": 14, "id": "91", "label": "google calendar ical caldav", "shape": "dot", "size": 10}, {"color": "#ff00e5", "community": 17, "id": "96", "label": "appwrite", "shape": "dot", "size": 10}, {"color": "#0019ff", "community": 13, "id": "98", "label": "problem report for macos window hangs", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": 0, "to": 1, "width": 1}, {"from": 0, "to": 2, "width": 1}, {"from": 1, "to": 2, "width": 1}, {"from": 3, "to": 4, "width": 1}, {"from": 6, "to": 7, "width": 1}, {"from": 8, "to": 11, "width": 1}, {"from": 9, "to": 10, "width": 1}, {"from": 13, "to": 71, "width": 1}, {"from": 14, "to": 68, "width": 1}, {"from": 14, "to": 71, "width": 1}, {"from": 15, "to": 16, "width": 1}, {"from": 16, "to": 20, "width": 1}, {"from": 19, "to": 20, "width": 1}, {"from": 21, "to": 22, "width": 1}, {"from": 21, "to": 23, "width": 1}, {"from": 22, "to": 23, "width": 1}, {"from": 24, "to": 59, "width": 1}, {"from": 26, "to": 60, "width": 1}, {"from": 26, "to": 72, "width": 1}, {"from": 26, "to": 90, "width": 1}, {"from": 28, "to": 29, "width": 1}, {"from": 28, "to": 33, "width": 1}, {"from": 29, "to": 33, "width": 1}, {"from": 30, "to": 50, "width": 1}, {"from": 33, "to": 34, "width": 1}, {"from": 35, "to": 36, "width": 1}, {"from": 40, "to": 42, "width": 1}, {"from": 40, "to": 43, "width": 1}, {"from": 40, "to": 44, "width": 1}, {"from": 40, "to": 69, "width": 1}, {"from": 42, "to": 43, "width": 1}, {"from": 42, "to": 44, "width": 1}, {"from": 43, "to": 44, "width": 1}, {"from": 45, "to": 94, "width": 1}, {"from": 45, "to": 95, "width": 1}, {"from": 45, "to": 99, "width": 1}, {"from": 46, "to": 47, "width": 1}, {"from": 49, "to": 67, "width": 1}, {"from": 53, "to": 66, "width": 1}, {"from": 54, "to": 55, "width": 1}, {"from": 54, "to": 56, "width": 1}, {"from": 54, "to": 57, "width": 1}, {"from": 55, "to": 56, "width": 1}, {"from": 55, "to": 57, "width": 1}, {"from": 56, "to": 57, "width": 1}, {"from": 60, "to": 63, "width": 1}, {"from": 60, "to": 72, "width": 1}, {"from": 61, "to": 62, "width": 1}, {"from": 68, "to": 71, "width": 1}, {"from": 70, "to": 97, "width": 1}, {"from": 72, "to": 84, "width": 1}, {"from": 72, "to": 90, "width": 1}, {"from": 73, "to": 75, "width": 1}, {"from": 73, "to": 77, "width": 1}, {"from": 73, "to": 78, "width": 1}, {"from": 73, "to": 79, "width": 1}, {"from": 73, "to": 84, "width": 1}, {"from": 74, "to": 75, "width": 1}, {"from": 74, "to": 78, "width": 1}, {"from": 74, "to": 84, "width": 1}, {"from": 75, "to": 77, "width": 1}, {"from": 75, "to": 78, "width": 1}, {"from": 75, "to": 79, "width": 1}, {"from": 75, "to": 84, "width": 1}, {"from": 75, "to": 86, "width": 1}, {"from": 75, "to": 88, "width": 1}, {"from": 76, "to": 77, "width": 1}, {"from": 76, "to": 78, "width": 1}, {"from": 76, "to": 79, "width": 1}, {"from": 76, "to": 86, "width": 1}, {"from": 76, "to": 88, "width": 1}, {"from": 77, "to": 78, "width": 1}, {"from": 77, "to": 79, "width": 1}, {"from": 77, "to": 84, "width": 1}, {"from": 77, "to": 86, "width": 1}, {"from": 77, "to": 88, "width": 1}, {"from": 78, "to": 79, "width": 1}, {"from": 78, "to": 84, "width": 1}, {"from": 78, "to": 86, "width": 1}, {"from": 79, "to": 81, "width": 1}, {"from": 79, "to": 84, "width": 1}, {"from": 79, "to": 86, "width": 1}, {"from": 79, "to": 88, "width": 1}, {"from": 80, "to": 81, "width": 1}, {"from": 80, "to": 83, "width": 1}, {"from": 81, "to": 82, "width": 1}, {"from": 81, "to": 83, "width": 1}, {"from": 84, "to": 85, "width": 1}, {"from": 84, "to": 86, "width": 1}, {"from": 86, "to": 88, "width": 1}, {"from": 92, "to": 93, "width": 1}, {"from": 94, "to": 95, "width": 1}, {"from": 94, "to": 99, "width": 1}, {"from": 95, "to": 99, "width": 1}, {"dashes": true, "from": 50, "to": 67}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
