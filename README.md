@@ -6,7 +6,7 @@
 Four master's students from the Graduate School of Data Science, Seoul National University, specializing in Data Visualization and Business Analytics.<br>[ swannekim@snu.ac.kr | pkmon1d@snu.ac.kr | changyu.lee@snu.ac.kr | yeeun.choi@snu.ac.kr ]
 
 ## Project Overview
-Our team has developed an innovative life-logging service, encapsulated in a user-friendly web interface. This service adeptly captures and visualizes various dimensions of daily life, employing advanced data visualization techniques. The project, a culmination of interdisciplinary expertise, integrates practical data analytics with aesthetic visualization principles.
+With the rapid pace of technological progress, an immense amount of personal data is accumulated, which highlights the critical importance of analyzing personal data. This system introduces a lifelog visualization system with Google's My Activity data, enabling comprehensive analysis of personal digital interactions. It features an integrated overview of lifelogs, a keyword network from search data, topic modeling of YouTube watch history, and detailed analysis of time allocation on activities. These features collectively facilitate a deep understanding of individual digital behaviors and patterns. The development and functionality of the system are thoroughly explored, highlighting its significant potential in personal data interpretation. This research represents a notable advancement in user-level data analysis, providing valuable insights into the digital footprint of individuals.
 
 ## Key Features
 - **Lifelog Data Overview**: Interactive scatter plot to visualize timestamp of activity in Google Platforms
