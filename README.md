@@ -1,6 +1,6 @@
 # ViBA-PacificVis2024
 
-# Revelio: Dynamic Life-Logging Visualization Service
+# Revelio: A Lifelog Visualization System with Google My Activity
 
 ## Team Composition
 Four master's students from the Graduate School of Data Science, Seoul National University, specializing in Data Visualization and Business Analytics.<br>[ swannekim@snu.ac.kr | pkmon1d@snu.ac.kr | changyu.lee@snu.ac.kr | yeeun.choi@snu.ac.kr ]
