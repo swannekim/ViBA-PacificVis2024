@@ -2,7 +2,7 @@
 
 # Revelio: A Lifelog Visualization System with Google My Activity
 
-## Video Description
+## Demo Video
 [ https://youtu.be/MGzVo_8N2q8 ]
 
 ## Team Composition
