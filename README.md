@@ -5,9 +5,6 @@
 ## Video Description
 [ https://youtu.be/MGzVo_8N2q8 ]
 
-## Website Access
-[ https://swannekim.github.io/ViBA-PacificVis2024/Revelio/ ]
-
 ## Team Composition
 Four master's students from the Graduate School of Data Science, Seoul National University, specializing in Data Visualization and Business Analytics.<br>[ swannekim@snu.ac.kr | pkmon1d@snu.ac.kr | changyu.lee@snu.ac.kr | yeeun.choi@snu.ac.kr ]
 
@@ -22,6 +19,9 @@ With the rapid pace of technological progress, an immense amount of personal dat
 
 ## Objective
 The primary goal of this service is to provide users with meaningful insights into their daily routines and habits, fostering a deeper understanding of personal behaviors and lifestyle choices. This tool serves as a bridge between raw data and actionable knowledge, empowering users to make informed decisions, based on Google Takeout's My Activity data.
+
+## Website Access
+[ https://swannekim.github.io/ViBA-PacificVis2024/Revelio/ ]
 
 ## Lab Affiliation
 Visualization and Business Analytics Lab @ Graduate School of Data Science, Seoul National University, KR
